@@ -1,4 +1,5 @@
 import { useState } from "react";
+import MensajeLlamando from "./components/MensajeLlamando";
 import NumeroTelefono from "./components/NumeroTelefono";
 import Teclado from "./components/Teclado";
 const maxDigitos = 9;
@@ -40,7 +41,8 @@ function App() {
 
   return (
     <div className="contenedor">
-      <span className={`mensaje${!llamando ? " off" : ""}`}>Llamando...</span>
+      <MensajeLlamando
+        llamando={llamando} />
       <main className="telefono">
         <div className="botones">
           <Teclado
