@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Teclado from "./components/Teclado";
 const maxDigitos = 9;
 
 let temporizador;
@@ -41,16 +42,10 @@ function App() {
       <span className={`mensaje${!llamando ? " off" : ""}`}>Llamando...</span>
       <main className="telefono">
         <div className="botones">
-          <ol className="teclado">
-            {
-              [...[...Array(10)].map((x, i) => i).slice(1), 0].map(digito => (
-                <li key={digito}>
-                  <button disabled={llamando} onClick={() => anyadirDigito(digito)}>{digito}</button>
-                </li>
-              ))
-            }
-            <li><button disabled={llamando} className="big" onClick={borrarUltimoDigito}>borrar</button></li>
-          </ol>
+          <Teclado
+            llamando={llamando}
+            anyadirDigito={anyadirDigito}
+            borrarUltimoDigito={borrarUltimoDigito} />
         </div>
         <div className="acciones">
           <span className="numero">{numero}</span>
