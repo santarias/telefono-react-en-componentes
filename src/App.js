@@ -1,4 +1,5 @@
 import { useState } from "react";
+import NumeroTelefono from "./components/NumeroTelefono";
 import Teclado from "./components/Teclado";
 const maxDigitos = 9;
 
@@ -48,7 +49,9 @@ function App() {
             borrarUltimoDigito={borrarUltimoDigito} />
         </div>
         <div className="acciones">
-          <span className="numero">{numero}</span>
+          <NumeroTelefono
+            numero={numero}
+          />
           {
             !llamando
               ? <a
